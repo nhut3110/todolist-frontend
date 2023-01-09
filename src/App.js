@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import { ChangePassword, ChangedPassword, Home, UserSpace, ProfilePage, TaskPage, Signin, Signup } from './pages';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Signin />} />
+        <Route path='/register' element={<Signup />} />
+        <Route path='/changepassword' element={<ChangePassword />} />
+        <Route path='/changesuccess' element={<ChangedPassword />} />
+        <Route path='/userspace' element={<UserSpace />} />
+        <Route path='/profile' element={<ProfilePage />} />
+        <Route path='/task/:id' element={<TaskPage />} />
+      </Routes>
+    </Router>
+
   );
 }
 
